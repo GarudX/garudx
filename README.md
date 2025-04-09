@@ -1,21 +1,73 @@
-# React + TypeScript + Vite
+# GarudX Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the official website for GarudX, built with React, TypeScript, and Vite.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+## Project Setup
 
-## Deploy Your Own
+- **Framework**: React + TypeScript
+- **Build Tool**: Vite
+- **Deployment**: Vercel (Pro Version)
+- **Repository**: GitHub
 
-Deploy your own Vite project with Vercel.
+## Development
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
+This project uses:
+- Hot Module Replacement (HMR)
+- ESLint for code quality
+- TypeScript for type safety
 
-_Live Example: https://vite-react-example.vercel.app_
+## Deployment Status
 
-### Deploying From Your Terminal
+The project is currently deployed on Vercel with automatic deployments enabled. Any commits pushed to the main branch will trigger an automatic deployment.
 
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
+### Deployment Workflow
 
-```shell
-$ vercel
+1. Make changes in your local development environment
+2. Commit and push changes to GitHub
+3. Vercel automatically detects the new commit
+4. New deployment is triggered automatically
+5. Changes go live once deployment is complete
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/GarudX/garudx.git
 ```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Make your changes and commit them:
+```bash
+git add .
+git commit -m "Your commit message"
+git push
+```
+
+## Deployment
+
+The project is deployed on Vercel Pro. Any changes pushed to the main branch will automatically trigger a new deployment.
+
+For manual deployment, you can use the Vercel CLI:
+```bash
+vercel
+```
+
+## Contributing
+
+1. Make your changes in the local development environment
+2. Test your changes locally
+3. Commit and push your changes
+4. Vercel will automatically deploy the updates
+
+## License
+
+[Add your license information here]

@@ -1,34 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { ComponentsShowcase } from './pages/ComponentsShowcase'
+import AerospaceDesignShowcase from './pages/AerospaceDesignShowcase'
+import './styles/global.css'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // Add scroll reveal effect for elements with data-scroll attribute
+  useEffect(() => {
+    const revealElements = document.querySelectorAll('[data-scroll]')
+    
+    const revealOnScroll = () => {
+      for (let i = 0; i < revealElements.length; i++) {
+        const windowHeight = window.innerHeight
+        const elementTop = revealElements[i].getBoundingClientRect().top
+        const elementVisible = 150
+        
+        if (elementTop < windowHeight - elementVisible) {
+          revealElements[i].classList.add('active')
+        } else {
+          revealElements[i].classList.remove('active')
+        }
+      }
+    }
+    
+    window.addEventListener('scroll', revealOnScroll)
+    revealOnScroll()
+    
+    return () => window.removeEventListener('scroll', revealOnScroll)
+  }, [])
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/components" element={<ComponentsShowcase />} />
+        <Route path="/aerospace" element={<AerospaceDesignShowcase />} />
+        {/* Add more routes as you build additional pages */}
+        {/* <Route path="/services" element={<Services />} /> */}
+        {/* <Route path="/anti-drone-systems" element={<AntiDroneSystems />} /> */}
+        {/* <Route path="/portfolio" element={<Portfolio />} /> */}
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route path="/contact" element={<Contact />} /> */}
+      </Routes>
+    </Router>
   )
 }
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic Page</title>
+  <style>
+    body {
+      background-color: #1E1E24;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      background-color: #121212;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      color: #3A86FF;
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .button {
+      display: inline-block;
+      background-color: #3A86FF;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>GarudX Diagnostic Page</h1>
+    <p>If you can see this page, the web server is functioning correctly. This is a static HTML file being served from the public directory.</p>
+    <p>This page can help diagnose if there are issues with the React application rendering.</p>
+    <p>Try accessing these routes:</p>
+    <ul>
+      <li><a href="/" style="color: #3A86FF;">Home Page</a></li>
+      <li><a href="/components" style="color: #3A86FF;">Components Showcase</a></li>
+      <li><a href="/aerospace" style="color: #3A86FF;">Aerospace Design Showcase</a></li>
+    </ul>
+    <p>If you can access this page but not the React routes, there might be an issue with the React application or its routing.</p>
+  </div>
+</body>
+</html> 
