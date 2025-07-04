@@ -1,16 +1,16 @@
-import { Input } from './Input';
-import { Select } from './Select';
-import { Checkbox } from './Checkbox';
-import { RadioButton, RadioGroup } from './RadioButton';
-import { TextArea } from './TextArea';
-import { Switch } from './Switch';
+import { Input } from '../atoms/Input';
+// import { Select } from './Select';
+import { Checkbox } from '../atoms/Checkbox';
+import { RadioButton, RadioGroup } from '../atoms/RadioButton';
+// import { TextArea } from './TextArea';
+import { Switch } from '../atoms/Switch';
 
 export {
   Input,
-  Select,
+  // Select,
   Checkbox,
   RadioButton,
   RadioGroup,
-  TextArea,
+  // TextArea,
   Switch
 }; 

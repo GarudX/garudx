@@ -1,29 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { FiArrowRight, FiMaximize, FiMinimize, FiShield, FiCpu, FiWifi } from "react-icons/fi";
-import { cn } from "../../lib/utils";
-import { Button } from "../ui/Button";
-import { GlassCard as Card, CardBody } from "../ui/GlassCard";
+import { cn } from "../../utils/helpers/cn";
+import { Button } from "../atoms/Button";
+import { GlassCard as Card } from "../molecules/GlassCard";
 import Spline from '@splinetool/react-spline';
 import { BeatLoader } from "react-spinners";
-import Icon from "../ui/Icon";
-
-// Text animation variants
-const titleVariants = {
-  hidden: { opacity: 0 },
-  visible: (i: number) => ({
-    opacity: 1,
-    transition: {
-      delay: i * 0.1,
-    },
-  }),
-};
+import Icon from "../atoms/Icon";
 
 // Text lines for animated typing effect
 const heroTextLines = [
-  "Autonomous Surveillance",
-  "Intelligent Defense Systems",
-  "Next-Gen Drone Technology"
+  "FPV Drone Innovation",
+  "Aerial Cinematography",
+  "Himalayan Adventures"
 ];
 
 // Particle animation component
@@ -54,40 +43,11 @@ const ParticleField = () => {
   );
 };
 
-// Data visualization component
-const DataViz = ({ className }: { className?: string }) => {
-  return (
-    <div className={cn("relative h-16", className)}>
-      <div className="absolute inset-0 flex items-end space-x-1">
-        {[...Array(20)].map((_, index) => {
-          const height = Math.random() * 100;
-          return (
-            <motion.div
-              key={index}
-              className="bg-white/30 backdrop-blur-sm w-1 rounded-t-sm"
-              initial={{ height: 0 }}
-              animate={{ 
-                height: [height * 0.3, height * 0.6, height * 0.4, height * 0.8, height * 0.5], 
-              }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity, 
-                repeatType: "reverse",
-                ease: "easeInOut",
-                delay: index * 0.1
-              }}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-};
+
 
 export const HeroSection = () => {
   // State for text animation
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [isTextAnimating, setIsTextAnimating] = useState(false);
   
   // State for 3D element
   const [isSplineLoaded, setIsSplineLoaded] = useState(false);
@@ -99,10 +59,8 @@ export const HeroSection = () => {
   // Cycle through text lines
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsTextAnimating(true);
       setTimeout(() => {
         setCurrentTextIndex((prev) => (prev + 1) % heroTextLines.length);
-        setIsTextAnimating(false);
       }, 500); // Fade out time
     }, 4000); // Change text every 4 seconds
 
@@ -131,8 +89,40 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden text-white">
-      {/* YouTube Video Background */}
-      <div className="absolute inset-0 z-0">
+      {/* Enhanced Background System - Hero Variation */}
+      <div className="absolute inset-0">
+        {/* Base dark gradient - same as footer */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0f0f1f_0%,#030305_100%)]" />
+        
+        {/* Grid system - exactly like footer */}
+        <div className="absolute inset-0">
+          {/* Main grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-[size:24px_24px]" />
+          
+          {/* Larger grid overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.05)_1px,transparent_1px)] bg-[size:96px_96px]" />
+
+          {/* Grid fade effects - same as footer */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_20%,#030305_70%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[#030305]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-transparent" style={{ top: '70%' }} />
+        </div>
+
+        {/* Noise texture - exactly like footer */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')] opacity-15" />
+
+        {/* Animated highlights - same as footer */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl animate-pulse [animation-delay:1000ms]" />
+        </div>
+        
+        {/* Animated particle field */}
+        <ParticleField />
+      </div>
+
+      {/* YouTube Video Overlay (reduced opacity to show background) */}
+      <div className="absolute inset-0 z-10 opacity-30">
         <div className={cn(
           "absolute inset-0 bg-black transition-opacity duration-1000",
           videoLoaded ? "opacity-0" : "opacity-100"
@@ -152,15 +142,6 @@ export const HeroSection = () => {
             ></iframe>
           </div>
         </div>
-        
-        {/* Overlay to darken video */}
-        <div className="absolute inset-0 bg-black/60"></div>
-        
-        {/* Grid Pattern Background */}
-        <div className="absolute inset-0 bg-precision-grid bg-[length:40px_40px] opacity-5 z-10"></div>
-        
-        {/* Animated particle field */}
-        <ParticleField />
       </div>
 
       {/* Fullscreen Spline View */}
@@ -197,92 +178,85 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Badge */}
+            {/* Badge - Smaller and more refined */}
             <motion.div
-              className="inline-flex items-center px-3 py-1 mb-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20"
+              className="inline-flex items-center px-3 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <span className="w-2 h-2 rounded-full bg-white mr-2 animate-pulse"></span>
-              <span className="text-xs font-technical tracking-wider">MILITARY GRADE TECHNOLOGY</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-white mr-2 animate-pulse"></span>
+              <span className="text-xs font-technical tracking-wider text-white">KATHMANDU, NEPAL</span>
             </motion.div>
             
-            {/* Headline with ScaleAI-style animation */}
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              <span className="block mb-2 text-white">GarudX</span>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentTextIndex}
-                  className="block bg-clip-text text-white h-16 md:h-24 inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {heroTextLines[currentTextIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </h1>
+            {/* Headline - Smaller and more elegant */}
+            <div className="mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentTextIndex}
+                    className="block text-white h-12 md:h-16 inline-block leading-tight"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {heroTextLines[currentTextIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </h1>
+            </div>
             
-            {/* Description with staggered letters */}
-            <motion.p className="text-white/80 text-lg md:text-xl max-w-lg mb-8 font-light leading-relaxed">
-              {Array.from("The next evolution in autonomous drone technology. Advanced AI for surveillance, defense, and rapid response applications.").map((letter, i) => (
-                <motion.span
-                  key={i}
-                  custom={i}
-                  variants={titleVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="inline-block"
-                >
-                  {letter}
-                </motion.span>
-              ))}
+            {/* Description - Smaller and more refined */}
+            <motion.p 
+              className="text-white/80 text-base md:text-lg max-w-lg mb-6 font-light leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              From massive cinelifters to precision FPV racing drones, we capture the impossible. 
+              Based in the heart of the Himalayas, we bring cutting-edge drone technology to breathtaking locations.
             </motion.p>
             
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA Buttons - Smaller and more elegant */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button 
-                size="lg" 
-                className="bg-white hover:bg-white/90 text-black group transition-all"
+                size="md" 
+                className="bg-white hover:bg-white/90 text-black group transition-all px-6 py-3"
               >
-                <span>Request Demo</span>
-                <FiArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+                <span className="text-sm font-medium">Start Your Mission</span>
+                <FiArrowRight className="ml-2 transition-transform group-hover:translate-x-1" size={16} />
               </Button>
               <Button 
-                variant="secondary" 
-                size="lg" 
-                className="border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10"
+                variant="bordered" 
+                size="md" 
+                className="border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 px-6 py-3"
               >
-                <span>View Technology</span>
+                <span className="text-sm font-medium">View Our Fleet</span>
               </Button>
             </div>
             
-            {/* Data visualization */}
-            <DataViz className="mt-12 mb-4" />
-            
-            {/* Metrics with glass cards */}
-            <div className="grid grid-cols-3 gap-4 max-w-lg">
+            {/* Metrics with glass cards - Smaller and more refined */}
+            <div className="grid grid-cols-3 gap-4 max-w-md">
               <Card className="bg-white/5 backdrop-blur-lg border-white/10 p-4">
                 <div className="flex flex-col items-center text-center">
-                  <FiShield className="text-white mb-2" size={20} />
-                  <p className="text-white text-xl font-bold">99.7%</p>
-                  <p className="text-gray-400 text-xs">Detection Rate</p>
+                  <FiShield className="text-white mb-2" size={18} />
+                  <p className="text-white text-lg font-bold mb-1">50+</p>
+                  <p className="text-gray-400 text-xs">FPV Drones</p>
                 </div>
               </Card>
               <Card className="bg-white/5 backdrop-blur-lg border-white/10 p-4">
                 <div className="flex flex-col items-center text-center">
-                  <FiWifi className="text-white mb-2" size={20} />
-                  <p className="text-white text-xl font-bold">12km</p>
-                  <p className="text-gray-400 text-xs">Range</p>
+                  <FiWifi className="text-white mb-2" size={18} />
+                  <p className="text-white text-lg font-bold mb-1">1000+</p>
+                  <p className="text-gray-400 text-xs">Flight Hours</p>
                 </div>
               </Card>
               <Card className="bg-white/5 backdrop-blur-lg border-white/10 p-4">
                 <div className="flex flex-col items-center text-center">
-                  <FiCpu className="text-white mb-2" size={20} />
-                  <p className="text-white text-xl font-bold">30min</p>
-                  <p className="text-gray-400 text-xs">Deployment</p>
+                  <FiCpu className="text-white mb-2" size={18} />
+                  <p className="text-white text-lg font-bold mb-1">24/7</p>
+                  <p className="text-gray-400 text-xs">Support</p>
                 </div>
               </Card>
             </div>

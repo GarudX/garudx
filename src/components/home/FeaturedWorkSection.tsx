@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react';
-import { PlayIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import { FiTarget, FiPlay } from 'react-icons/fi';
-import { GlassCard } from '../ui/GlassCard';
-import { Button } from '../ui/Button';
+import { GlassCard } from '../molecules/GlassCard';
+import { Button } from '../atoms/Button';
 
 // Import images and videos
 import militaryImage from '../../assets/images/IMG-20250408-WA0044.jpg';
@@ -91,10 +91,49 @@ export const FeaturedWorkSection = () => {
   };
   
   return (
-    <section className="py-20 px-4 bg-darkSlate relative" id="portfolio">
-      {/* Background elements */}
-      <div className="absolute inset-0 opacity-5 bg-precision-grid bg-[length:20px_20px]" aria-hidden="true" />
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-midnight to-transparent" aria-hidden="true" />
+    <section className="py-20 px-4 relative overflow-hidden" id="portfolio">
+      {/* Enhanced Background System - Featured Work Variation */}
+      <div className="absolute inset-0">
+        {/* Base dark gradient - same as footer */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0f0f1f_0%,#030305_100%)]" />
+        
+        {/* Featured Work-specific colored gradients - extremely subtle gold/yellow for showcase */}
+        <div className="absolute inset-0">
+          {/* Primary gold-amber gradient for showcasing achievements - extremely subtle */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_30%,#f59e0b_0%,transparent_50%)] opacity-1" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,#d97706_0%,transparent_50%)] opacity-0.5" />
+          
+          {/* Orange accents for warmth - extremely subtle */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,#ea580c_0%,transparent_45%)] opacity-0.5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#f97316_0%,transparent_40%)] opacity-0.3" />
+          
+          {/* Subtle blue for contrast - extremely subtle */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,#3b82f6_0%,transparent_30%)] opacity-0.3" />
+        </div>
+
+        {/* Enhanced grid system - matching footer style with subtle pop */}
+        <div className="absolute inset-0">
+          {/* Fine grid pattern - more visible */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.08)_1px,transparent_1px)] bg-[size:24px_24px]" />
+          
+          {/* Medium grid overlay - more visible */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(245,158,11,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(245,158,11,0.06)_1px,transparent_1px)] bg-[size:96px_96px]" />
+
+          {/* Grid fade effects - same as footer */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_20%,#030305_70%)]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-[#030305]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-transparent" style={{ top: '70%' }} />
+        </div>
+
+        {/* Noise texture - exactly like footer */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ci8+PC9zdmc+')] opacity-15" />
+
+        {/* Animated highlights - very subtle like footer */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-500/3 rounded-full blur-3xl animate-pulse [animation-delay:1000ms]" />
+        </div>
+      </div>
       
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center mb-16 text-center">
@@ -103,9 +142,9 @@ export const FeaturedWorkSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="inline-block mb-4 px-3 py-1 bg-electricBlue/10 rounded-full"
+            className="inline-block mb-4 px-3 py-1 bg-blue-500/10 rounded-full"
           >
-            <span className="text-sm md:text-base tracking-widest uppercase font-mono text-electricBlue flex items-center">
+            <span className="text-sm md:text-base tracking-widest uppercase font-mono text-blue-500 flex items-center">
               <FiTarget className="mr-2" />
               Mission Archives
             </span>
@@ -126,7 +165,7 @@ export const FeaturedWorkSection = () => {
             whileInView={{ width: '6rem' }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="h-1 bg-electricBlue rounded-full mb-6"
+            className="h-1 bg-blue-500 rounded-full mb-6"
           />
           
           <motion.p 
@@ -134,7 +173,7 @@ export const FeaturedWorkSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-titaniumSilver max-w-2xl text-center font-mono"
+            className="text-gray-300 max-w-2xl text-center font-mono"
           >
             Documented field operations demonstrating tactical aerial solutions across diverse mission parameters.
           </motion.p>
@@ -152,9 +191,9 @@ export const FeaturedWorkSection = () => {
             <Button
               key={category}
               onClick={() => setActiveCategory(category)}
-              variant={activeCategory === category ? 'technical' : 'tertiary'}
+              variant={activeCategory === category ? 'bordered' : 'light'}
               size="sm"
-              className={`${activeCategory === category ? 'text-electricBlue' : 'text-titaniumSilver'} font-mono`}
+              className={`${activeCategory === category ? 'text-blue-500' : 'text-gray-300'} font-mono`}
             >
               {category.toUpperCase()}
             </Button>
@@ -174,7 +213,7 @@ export const FeaturedWorkSection = () => {
               className="cursor-pointer"
               onClick={() => openVideoModal(project)}
             >
-              <GlassCard variant="dark" design="technical" className="h-full overflow-hidden">
+              <GlassCard className="h-full overflow-hidden">
                 <div className="aspect-video relative overflow-hidden">
                   <img 
                     src={project.image} 
@@ -183,36 +222,36 @@ export const FeaturedWorkSection = () => {
                   />
                   
                   {/* Tactical overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-darkSlate to-transparent opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent opacity-80"></div>
                   
                   {/* Top overlay with category */}
-                  <div className="absolute top-2 left-2 bg-electricBlue/20 text-electricBlue text-xs font-mono px-2 py-0.5 rounded">
+                  <div className="absolute top-2 left-2 bg-blue-500/20 text-blue-500 text-xs font-mono px-2 py-0.5 rounded">
                     {project.category}
                   </div>
                   
                   {/* Bottom code overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-2 text-xs text-electricBlue font-mono flex justify-between">
+                  <div className="absolute bottom-0 left-0 right-0 p-2 text-xs text-blue-500 font-mono flex justify-between">
                     <span>MISSION-{project.id}</span>
                     <span>{project.date}</span>
                   </div>
                   
                   {/* Play button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-electricBlue/20 border border-electricBlue/50 p-3 rounded-full">
-                      <FiPlay className="h-8 w-8 text-electricBlue" />
+                    <div className="bg-blue-500/20 border border-blue-500/50 p-3 rounded-full">
+                      <FiPlay className="h-8 w-8 text-blue-500" />
                     </div>
                   </div>
                 </div>
                 
                 <div className="p-4">
-                  <h3 className="text-lg font-bold mb-2 text-electricBlue font-mono">{project.title}</h3>
-                  <p className="text-titaniumSilver mb-3 text-sm font-mono line-clamp-2">
+                  <h3 className="text-lg font-bold mb-2 text-blue-500 font-mono">{project.title}</h3>
+                  <p className="text-gray-300 mb-3 text-sm font-mono line-clamp-2">
                     {project.description}
                   </p>
                   
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="text-xs bg-darkSlate/70 text-titaniumSilver px-2 py-0.5 rounded font-mono">
+                      <span key={i} className="text-xs bg-gray-800/70 text-gray-300 px-2 py-0.5 rounded font-mono">
                         {tag}
                       </span>
                     ))}
@@ -230,11 +269,11 @@ export const FeaturedWorkSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <Button 
-            variant="technical" 
-            size="lg"
-            isGlowing
-          >
+                            <Button 
+                    variant="bordered" 
+                    size="lg"
+                    isGlowing
+                  >
             ACCESS FULL MISSION ARCHIVES
           </Button>
         </motion.div>
@@ -247,9 +286,9 @@ export const FeaturedWorkSection = () => {
         size="3xl"
         backdrop="blur"
         classNames={{
-          base: "bg-darkSlate border border-electricBlue/30",
-          header: "border-b border-electricBlue/20",
-          footer: "border-t border-electricBlue/20",
+          base: "bg-gray-800 border border-blue-500/30",
+          header: "border-b border-blue-500/20",
+          footer: "border-t border-blue-500/20",
         }}
         motionProps={{
           initial: { opacity: 0, scale: 0.95 },
@@ -262,12 +301,12 @@ export const FeaturedWorkSection = () => {
           {(onClose) => (
             <>
               <ModalHeader className="flex justify-between items-center">
-                <div className="font-mono text-electricBlue">
+                <div className="font-mono text-blue-500">
                   <span className="text-xs opacity-70">MISSION-ID: </span>
                   <span className="font-bold">{selectedProject?.id}</span>
                 </div>
                 <Button 
-                  variant="tertiary"
+                  variant="light"
                   size="sm" 
                   className="min-w-0 w-8 h-8 p-0"
                   onClick={onClose}
@@ -289,13 +328,13 @@ export const FeaturedWorkSection = () => {
                 )}
               </ModalBody>
               <ModalFooter className="flex flex-col items-start">
-                <h3 className="text-lg font-bold text-electricBlue font-mono mb-2">{selectedProject?.title}</h3>
-                <p className="text-sm text-titaniumSilver font-mono mb-3">
+                <h3 className="text-lg font-bold text-blue-500 font-mono mb-2">{selectedProject?.title}</h3>
+                <p className="text-sm text-gray-300 font-mono mb-3">
                   {selectedProject?.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject?.tags.map((tag, i) => (
-                    <span key={i} className="text-xs bg-darkSlate/70 text-titaniumSilver px-2 py-0.5 rounded font-mono">
+                    <span key={i} className="text-xs bg-gray-800/70 text-gray-300 px-2 py-0.5 rounded font-mono">
                       {tag}
                     </span>
                   ))}

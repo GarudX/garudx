@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { Navbar } from '../components/layout/Navbar'
-import { Footer } from '../components/layout/Footer'
+import { Navbar } from '../components/templates/Navbar'
+import { Footer } from '../components/templates/Footer'
 import { HeroSection } from '../components/home/HeroSection'
 import { ServicesSection } from '../components/home/ServicesSection'
 import { FeaturedWorkSection } from '../components/home/FeaturedWorkSection'
@@ -22,7 +22,7 @@ export function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-midnight text-white relative">
+    <div className="min-h-screen text-white relative">
       {/* Content */}
       <div className="relative z-10">
         <Navbar />

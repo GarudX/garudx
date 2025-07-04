@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import { Navbar } from '../components/layout/Navbar';
-import { Footer } from '../components/layout/Footer';
-import { Button } from '../components/ui/Button';
-import { NeonText } from '../components/ui/NeonText';
-import { GlassCard } from '../components/ui/GlassCard';
-import { Modal } from '../components/ui/Modal';
-import { Timeline } from '../components/ui/Timeline';
-import { AerospaceButton } from '../components/ui/AerospaceButton';
-import { Input } from '../components/ui/Input';
-import { Select } from '../components/ui/Select';
-import { Checkbox } from '../components/ui/Checkbox';
-import { TextArea } from '../components/ui/TextArea';
-import { Switch } from '../components/ui/Switch';
-import { TechnicalPanel } from '../components/ui/TechnicalPanel';
+import { Navbar } from '../components/templates/Navbar';
+import { Footer } from '../components/templates/Footer';
+import { Button } from '../components/atoms/Button';
+import { NeonText } from '../components/atoms/NeonText';
+import { GlassCard } from '../components/molecules/GlassCard';
+import { Modal } from '../components/molecules/Modal';
+import { Timeline } from '../components/molecules/Timeline';
+import { AerospaceButton } from '../components/atoms/AerospaceButton';
+import { Input } from '../components/atoms/Input';
+import { Select } from '../components/atoms/Select';
+import { Checkbox } from '../components/atoms/Checkbox';
+import { TextArea } from '../components/atoms/TextArea';
+import { Switch } from '../components/atoms/Switch';
+import { TechnicalPanel } from '../components/organisms/TechnicalPanel';
 import { motion } from 'framer-motion';
-import { Accordion } from '../components/ui/Accordion';
-import { Carousel } from '../components/ui/Carousel';
-import { Icon } from '../components/ui/Icon';
-import { ProgressiveBlur } from '../components/ui/ProgressiveBlur';
-import { VideoPlayer } from '../components/ui/VideoPlayer';
-import { YouTubeBackground } from '../components/ui/YouTubeBackground';
+import { Accordion } from '../components/molecules/Accordion';
+import { Carousel } from '../components/molecules/Carousel';
+import { Icon } from '../components/atoms/Icon';
+import { ProgressiveBlur } from '../components/molecules/ProgressiveBlur';
+import { VideoPlayer } from '../components/molecules/VideoPlayer';
+import { YouTubeBackground } from '../components/molecules/YouTubeBackground';
 
 // Custom simplified Tab components without HeroUI dependency
 const CustomTabs = ({ 
@@ -71,12 +71,8 @@ const CustomTabs = ({
 
 const CustomTab = ({ 
   children, 
-  id, 
-  label 
 }: { 
   children: React.ReactNode, 
-  id: string, 
-  label: string 
 }) => {
   return <div>{children}</div>;
 };
@@ -187,23 +183,23 @@ export const ComponentsShowcase = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-midnight text-white">
+    <div className="min-h-screen bg-gray-900 text-white">
       <Navbar />
       
       <main className="container mx-auto px-4 py-24">
         <div className="mb-12 text-center">
-          <NeonText as="h1" color="teal" intensity="high" className="text-4xl md:text-5xl font-bold mb-4">
+          <NeonText as="h1" color="cyan" intensity="high" className="text-4xl md:text-5xl font-bold mb-4">
             Components Showcase
           </NeonText>
-          <p className="text-titaniumSilver max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto">
             This page displays all available UI components for easy reference and testing. Use this to check how components look after making changes.
           </p>
         </div>
 
         <CustomTabs activeTab={activeTab} setActiveTab={setActiveTab}>
-          <CustomTab id="buttons" label="Buttons">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Buttons
               </NeonText>
               
@@ -211,27 +207,27 @@ export const ComponentsShowcase = () => {
                 <div className="space-y-4">
                   <NeonText as="h3" className="text-xl font-bold">Primary</NeonText>
                   <div className="flex flex-wrap gap-4">
-                    <Button variant="primary" size="sm">Small</Button>
-                    <Button variant="primary" size="md">Medium</Button>
-                    <Button variant="primary" size="lg">Large</Button>
+                    <Button variant="solid" size="sm">Small</Button>
+                    <Button variant="solid" size="md">Medium</Button>
+                    <Button variant="solid" size="lg">Large</Button>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
-                  <NeonText as="h3" className="text-xl font-bold">Secondary</NeonText>
+                  <NeonText as="h3" className=" text-xl font-bold">Secondary</NeonText>
                   <div className="flex flex-wrap gap-4">
-                    <Button variant="secondary" size="sm">Small</Button>
-                    <Button variant="secondary" size="md">Medium</Button>
-                    <Button variant="secondary" size="lg">Large</Button>
+                    <Button variant="bordered" size="sm">Small</Button>
+                    <Button variant="bordered" size="md">Medium</Button>
+                    <Button variant="bordered" size="lg">Large</Button>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <NeonText as="h3" className="text-xl font-bold">Tertiary</NeonText>
                   <div className="flex flex-wrap gap-4">
-                    <Button variant="tertiary" size="sm">Small</Button>
-                    <Button variant="tertiary" size="md">Medium</Button>
-                    <Button variant="tertiary" size="lg">Large</Button>
+                    <Button variant="light" size="sm">Small</Button>
+                    <Button variant="light" size="md">Medium</Button>
+                    <Button variant="light" size="lg">Large</Button>
                   </div>
                 </div>
               </div>
@@ -247,9 +243,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="cards" label="Cards">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Glass Cards
               </NeonText>
               
@@ -258,35 +254,34 @@ export const ComponentsShowcase = () => {
                   title="Standard Card"
                   footer="Last updated: April 8, 2024"
                 >
-                  <p className="text-titaniumSilver">
+                  <p className="text-gray-300">
                     This is a standard glass card component with a subtle backdrop blur effect.
                   </p>
                 </GlassCard>
                 
                 <GlassCard
-                  design="technical"
+                  variant="bordered"
                   title="Technical Card"
                   footer="[SYS:READY] | STANDBY MODE"
                 >
-                  <p className="text-titaniumSilver font-mono">
+                  <p className="text-gray-300 font-mono">
                     &gt; Technical variant with monospace font and blue accents.
                   </p>
                   <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
-                    <div>STATUS: <span className="text-electricBlue">NOMINAL</span></div>
-                    <div>POWER: <span className="text-limeGreen">98.2%</span></div>
+                    <div>STATUS: <span className="text-blue-400">NOMINAL</span></div>
+                    <div>POWER: <span className="text-green-400">98.2%</span></div>
                     <div>TEMP: <span className="text-amber-400">42.1°C</span></div>
-                    <div>SIGNAL: <span className="text-electricBlue">STRONG</span></div>
+                    <div>SIGNAL: <span className="text-blue-400">STRONG</span></div>
                   </div>
                 </GlassCard>
                 
                 <GlassCard
-                  design="technical"
-                  variant="dark"
+                  variant="shadow"
                   title="Premium Card"
                   footer="Exclusive Content"
                   isGlowing={true}
                 >
-                  <p className="text-titaniumSilver">
+                  <p className="text-gray-300">
                     Premium variant with a golden accent and enhanced glow effects.
                   </p>
                 </GlassCard>
@@ -294,9 +289,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="text" label="Text & Typography">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Neon Text
               </NeonText>
               
@@ -305,11 +300,11 @@ export const ComponentsShowcase = () => {
                   <NeonText color="blue" intensity="high" className="text-2xl">
                     Blue Neon - High Intensity
                   </NeonText>
-                  <NeonText color="teal" intensity="medium" className="text-2xl">
-                    Teal Neon - Medium Intensity
+                  <NeonText color="cyan" intensity="medium" className="text-2xl">
+                    Cyan Neon - Medium Intensity
                   </NeonText>
-                  <NeonText color="silver" intensity="low" className="text-2xl">
-                    Silver Neon - Low Intensity
+                  <NeonText color="gray" intensity="low" className="text-2xl">
+                    Gray Neon - Low Intensity
                   </NeonText>
                 </div>
                 
@@ -317,37 +312,37 @@ export const ComponentsShowcase = () => {
                   <NeonText color="blue" intensity="high" className="text-2xl">
                     Blue Neon - High Intensity
                   </NeonText>
-                  <NeonText color="teal" intensity="medium" className="text-2xl">
-                    Teal Neon - Medium Intensity
+                  <NeonText color="cyan" intensity="medium" className="text-2xl">
+                    Cyan Neon - Medium Intensity
                   </NeonText>
-                  <NeonText color="silver" intensity="low" className="text-2xl">
-                    Silver Neon - Low Intensity
+                  <NeonText color="gray" intensity="low" className="text-2xl">
+                    Gray Neon - Low Intensity
                   </NeonText>
                 </div>
               </div>
             </section>
           </CustomTab>
 
-          <CustomTab id="forms" label="Form Elements">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Form Elements
               </NeonText>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="space-y-6">
                   <div>
-                    <label className="block mb-2 text-titaniumSilver">Standard Input</label>
+                    <label className="block mb-2 text-gray-300">Standard Input</label>
                     <Input placeholder="Enter text here" />
                   </div>
                   
                   <div>
-                    <label className="block mb-2 text-titaniumSilver">Technical Input</label>
-                    <Input variant="technical" placeholder="SYSTEM_PARAMETER" />
+                    <label className="block mb-2 text-gray-300">Technical Input</label>
+                    <Input variant="bordered" placeholder="SYSTEM_PARAMETER" />
                   </div>
                   
                   <div>
-                    <label className="block mb-2 text-titaniumSilver">Select</label>
+                    <label className="block mb-2 text-gray-300">Select</label>
                     <Select 
                       placeholder="Select an option"
                       options={[
@@ -359,14 +354,14 @@ export const ComponentsShowcase = () => {
                   </div>
                   
                   <div>
-                    <label className="block mb-2 text-titaniumSilver">TextArea</label>
+                    <label className="block mb-2 text-gray-300">TextArea</label>
                     <TextArea placeholder="Enter multiple lines of text here" />
                   </div>
                 </div>
                 
                 <div className="space-y-6">
                   <div>
-                    <label className="block mb-2 text-titaniumSilver">Custom Radio Group</label>
+                    <label className="block mb-2 text-gray-300">Custom Radio Group</label>
                     <CustomRadioGroup 
                       options={radioOptions}
                       value={radioValue}
@@ -375,7 +370,7 @@ export const ComponentsShowcase = () => {
                   </div>
                   
                   <div>
-                    <label className="block mb-2 text-titaniumSilver">Checkbox</label>
+                    <label className="block mb-2 text-gray-300">Checkbox</label>
                     <Checkbox 
                       isChecked={isChecked}
                       onChange={() => setIsChecked(!isChecked)}
@@ -384,7 +379,7 @@ export const ComponentsShowcase = () => {
                   </div>
                   
                   <div>
-                    <label className="block mb-2 text-titaniumSilver">Switch</label>
+                    <label className="block mb-2 text-gray-300">Switch</label>
                     <Switch
                       isChecked={isSwitchOn}
                       onChange={() => setIsSwitchOn(!isSwitchOn)}
@@ -396,14 +391,14 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="modals" label="Modals">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Modals
               </NeonText>
               
               <Button 
-                variant="primary" 
+                variant="solid" 
                 onClick={() => setIsModalOpen(true)}
               >
                 Open Modal
@@ -416,19 +411,19 @@ export const ComponentsShowcase = () => {
                 size="md"
               >
                 <div className="p-4">
-                  <p className="text-titaniumSilver mb-4">
+                  <p className="text-gray-300 mb-4">
                     This is a sample modal dialog that can be used for various purposes like confirmations, alerts, or detailed forms.
                   </p>
                   
                   <div className="flex justify-end gap-2 mt-6">
                     <Button 
-                      variant="tertiary" 
+                      variant="light" 
                       onClick={() => setIsModalOpen(false)}
                     >
                       Cancel
                     </Button>
                     <Button 
-                      variant="primary" 
+                      variant="solid" 
                       onClick={() => setIsModalOpen(false)}
                     >
                       Confirm
@@ -439,9 +434,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="timeline" label="Timeline">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Timeline
               </NeonText>
               
@@ -457,9 +452,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="accordion" label="Accordion">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Accordion
               </NeonText>
               
@@ -514,9 +509,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="carousel" label="Carousel">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Carousel
               </NeonText>
               
@@ -525,13 +520,13 @@ export const ComponentsShowcase = () => {
                   <h3 className="text-xl font-bold mb-4">Standard Carousel</h3>
                   <Carousel
                     items={[
-                      <div key="1" className="bg-darkSlate/50 h-64 flex items-center justify-center rounded-lg">
+                      <div key="1" className="bg-gray-800/50 h-64 flex items-center justify-center rounded-lg">
                         <span className="text-xl">Slide 1</span>
                       </div>,
-                      <div key="2" className="bg-darkSlate/50 h-64 flex items-center justify-center rounded-lg">
+                      <div key="2" className="bg-gray-800/50 h-64 flex items-center justify-center rounded-lg">
                         <span className="text-xl">Slide 2</span>
                       </div>,
-                      <div key="3" className="bg-darkSlate/50 h-64 flex items-center justify-center rounded-lg">
+                      <div key="3" className="bg-gray-800/50 h-64 flex items-center justify-center rounded-lg">
                         <span className="text-xl">Slide 3</span>
                       </div>
                     ]}
@@ -546,14 +541,14 @@ export const ComponentsShowcase = () => {
                   <Carousel
                     variant="technical"
                     items={[
-                      <div key="1" className="bg-deepIndigo/50 h-64 flex items-center justify-center rounded-lg border border-electricBlue/20">
-                        <span className="text-xl font-mono text-electricBlue">DATA_SLIDE_01</span>
+                      <div key="1" className="bg-gray-900/50 h-64 flex items-center justify-center rounded-lg border border-blue-500/20">
+                        <span className="text-xl font-mono text-blue-400">DATA_SLIDE_01</span>
                       </div>,
-                      <div key="2" className="bg-deepIndigo/50 h-64 flex items-center justify-center rounded-lg border border-electricBlue/20">
-                        <span className="text-xl font-mono text-electricBlue">DATA_SLIDE_02</span>
+                      <div key="2" className="bg-gray-900/50 h-64 flex items-center justify-center rounded-lg border border-blue-500/20">
+                        <span className="text-xl font-mono text-blue-400">DATA_SLIDE_02</span>
                       </div>,
-                      <div key="3" className="bg-deepIndigo/50 h-64 flex items-center justify-center rounded-lg border border-electricBlue/20">
-                        <span className="text-xl font-mono text-electricBlue">DATA_SLIDE_03</span>
+                      <div key="3" className="bg-gray-900/50 h-64 flex items-center justify-center rounded-lg border border-blue-500/20">
+                        <span className="text-xl font-mono text-blue-400">DATA_SLIDE_03</span>
                       </div>
                     ]}
                     autoplay={false}
@@ -565,9 +560,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="media" label="Media Players">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Media Players
               </NeonText>
               
@@ -601,7 +596,7 @@ export const ComponentsShowcase = () => {
                 
                 <div>
                   <h3 className="text-xl font-bold mb-4">YouTube Background</h3>
-                  <div className="relative w-full h-64 border border-titaniumSilver/10 rounded-lg overflow-hidden">
+                  <div className="relative w-full h-64 border border-gray-600/20 rounded-lg overflow-hidden">
                     <YouTubeBackground 
                       videoId="JyECrGp-Sw8"
                       overlayOpacity={0.7}
@@ -615,9 +610,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="panels" label="Technical Panels">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Technical Panels
               </NeonText>
               
@@ -627,15 +622,15 @@ export const ComponentsShowcase = () => {
               >
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <h4 className="text-electricBlue mb-2 font-mono text-sm">POWER SYSTEMS</h4>
+                    <h4 className="text-blue-400 mb-2 font-mono text-sm">POWER SYSTEMS</h4>
                     <div className="space-y-1 text-xs">
                       <div className="flex justify-between">
                         <span>Main Battery</span>
-                        <span className="text-limeGreen">94%</span>
+                        <span className="text-green-400">94%</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Backup Systems</span>
-                        <span className="text-limeGreen">STANDBY</span>
+                        <span className="text-green-400">STANDBY</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Power Consumption</span>
@@ -645,19 +640,19 @@ export const ComponentsShowcase = () => {
                   </div>
                   
                   <div>
-                    <h4 className="text-electricBlue mb-2 font-mono text-sm">ENVIRONMENTAL</h4>
+                    <h4 className="text-blue-400 mb-2 font-mono text-sm">ENVIRONMENTAL</h4>
                     <div className="space-y-1 text-xs">
                       <div className="flex justify-between">
                         <span>Temperature</span>
-                        <span className="text-limeGreen">22.4°C</span>
+                        <span className="text-green-400">22.4°C</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Humidity</span>
-                        <span className="text-limeGreen">42%</span>
+                        <span className="text-green-400">42%</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Pressure</span>
-                        <span className="text-limeGreen">101.3 kPa</span>
+                        <span className="text-green-400">101.3 kPa</span>
                       </div>
                     </div>
                   </div>
@@ -666,38 +661,38 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="animations" label="Animations">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Animations
               </NeonText>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-deepIndigo p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2">Fade In</h3>
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
-                    className="w-full h-32 bg-electricBlue/20 rounded-lg flex items-center justify-center"
+                    className="w-full h-32 bg-blue-500/20 rounded-lg flex items-center justify-center"
                   >
                     <span className="font-mono">FADE ANIMATION</span>
                   </motion.div>
                 </div>
                 
-                <div className="bg-deepIndigo p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2">Scale</h3>
                   <motion.div
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatType: "reverse" }}
-                    className="w-full h-32 bg-limeGreen/20 rounded-lg flex items-center justify-center"
+                    className="w-full h-32 bg-green-500/20 rounded-lg flex items-center justify-center"
                   >
                     <span className="font-mono">SCALE ANIMATION</span>
                   </motion.div>
                 </div>
                 
-                <div className="bg-deepIndigo p-4 rounded-lg">
+                <div className="bg-gray-800 p-4 rounded-lg">
                   <h3 className="text-lg font-bold mb-2">Move</h3>
                   <div className="w-full h-32 relative overflow-hidden rounded-lg bg-purple-900/20">
                     <motion.div
@@ -714,9 +709,9 @@ export const ComponentsShowcase = () => {
             </section>
           </CustomTab>
 
-          <CustomTab id="misc" label="Misc Components">
+          <CustomTab>
             <section className="mb-16">
-              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-titaniumSilver/10 pb-2">
+              <NeonText as="h2" color="blue" intensity="medium" className="text-2xl font-bold mb-6 border-b border-gray-600/20 pb-2">
                 Miscellaneous Components
               </NeonText>
               
@@ -731,7 +726,7 @@ export const ComponentsShowcase = () => {
                       </div>
                     </div>
                     
-                    <div className="relative h-64 bg-gradient-to-r from-teal-500 to-green-600 rounded-lg overflow-hidden">
+                    <div className="relative h-64 bg-gradient-to-r from-cyan-500 to-green-600 rounded-lg overflow-hidden">
                       <ProgressiveBlur position="top" intensity="medium" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <span className="text-lg font-bold">Top Blur</span>
@@ -750,42 +745,42 @@ export const ComponentsShowcase = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-4">Icons</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="ArrowRightIcon" size="lg" />
                       <span className="mt-2 text-sm">ArrowRightIcon</span>
                     </div>
                     
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="InformationCircleIcon" size="lg" variant="interactive" />
                       <span className="mt-2 text-sm">InformationCircleIcon</span>
                     </div>
                     
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="CheckCircleIcon" size="lg" solid />
                       <span className="mt-2 text-sm">CheckCircleIcon (Solid)</span>
                     </div>
                     
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="ExclamationTriangleIcon" size="lg" variant="interactive" solid />
                       <span className="mt-2 text-sm">ExclamationTriangleIcon</span>
                     </div>
                     
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="RocketLaunchIcon" size="lg" />
                       <span className="mt-2 text-sm">RocketLaunchIcon</span>
                     </div>
                     
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="SignalIcon" size="lg" variant="interactive" />
                       <span className="mt-2 text-sm">SignalIcon</span>
                     </div>
                     
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="GlobeAltIcon" size="lg" solid />
                       <span className="mt-2 text-sm">GlobeAltIcon (Solid)</span>
                     </div>
                     
-                    <div className="flex flex-col items-center p-4 bg-darkSlate/20 rounded-lg">
+                    <div className="flex flex-col items-center p-4 bg-gray-800/20 rounded-lg">
                       <Icon name="Cog6ToothIcon" size="lg" variant="subtle" />
                       <span className="mt-2 text-sm">Cog6ToothIcon</span>
                     </div>
