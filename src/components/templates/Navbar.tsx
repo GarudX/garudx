@@ -197,7 +197,7 @@ export const Navbar = () => {
               {/* Call to action button */}
               <a 
                 href="/contact" 
-                className="relative border border-blue-500/30 text-white focus:outline-none rounded-md px-5 py-2 text-sm font-bold tracking-wider transition-colors overflow-hidden group
+                className="magnetic relative border border-blue-500/30 text-white focus:outline-none rounded-md px-5 py-2 text-sm font-bold tracking-wider transition-colors overflow-hidden group
                           bg-gradient-to-br from-blue-500/10 to-blue-600/20
                           backdrop-filter backdrop-blur-sm"
               >

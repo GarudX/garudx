@@ -97,27 +97,27 @@ export const ServicesSection = () => {
         {/* Base dark gradient - same as footer */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0f0f1f_0%,#030305_100%)]" />
         
-        {/* Services-specific colored gradients - extremely subtle like footer */}
+        {/* Colored gradient overlays - matching footer style */}
         <div className="absolute inset-0">
-          {/* Primary green-cyan gradient for technical/strategic - extremely subtle */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_20%,#10b981_0%,transparent_50%)] opacity-1" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,#06b6d4_0%,transparent_50%)] opacity-0.5" />
+          {/* Primary blue-purple gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_-10%,#3b82f6_0%,transparent_45%)] opacity-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_150%,#8b5cf6_0%,transparent_45%)] opacity-10" />
           
-          {/* Blue accents for harmony - extremely subtle */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_60%,#3b82f6_0%,transparent_45%)] opacity-0.5" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_40%,#1d4ed8_0%,transparent_40%)] opacity-0.3" />
+          {/* Accent gradients */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_80%,#1d4ed8_0%,transparent_30%)] opacity-5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_60%,#4f46e5_0%,transparent_30%)] opacity-5" />
           
-          {/* Subtle teal for variety - extremely subtle */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_90%,#0d9488_0%,transparent_30%)] opacity-0.3" />
+          {/* Subtle purple tint */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_60%,#a855f7_0%,transparent_20%)] opacity-2" />
         </div>
 
-        {/* Enhanced grid system - matching footer style with subtle pop */}
+        {/* Enhanced grid system with masks */}
         <div className="absolute inset-0">
-          {/* Fine grid pattern - more visible */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.08)_1px,transparent_1px)] bg-[size:24px_24px]" />
+          {/* Main grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-[size:24px_24px]" />
           
-          {/* Medium grid overlay - more visible */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(16,185,129,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(16,185,129,0.06)_1px,transparent_1px)] bg-[size:96px_96px]" />
+          {/* Larger grid overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.05)_1px,transparent_1px)] bg-[size:96px_96px]" />
 
           {/* Grid fade effects - same as footer */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_20%,#030305_70%)]" />
@@ -155,7 +155,7 @@ export const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold mb-4 font-mono"
+            className="section-header text-3xl md:text-5xl font-bold mb-4 font-mono"
           >
             Specialized Drone Operations
           </motion.h2>
@@ -190,6 +190,7 @@ export const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
+              className="service-card"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}

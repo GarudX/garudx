@@ -65,27 +65,27 @@ export const EquipmentSection = () => {
         {/* Base dark gradient - same as footer */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#0f0f1f_0%,#030305_100%)]" />
         
-        {/* Equipment-specific colored gradients - extremely subtle purple/magenta for power */}
+        {/* Colored gradient overlays - matching footer style */}
         <div className="absolute inset-0">
-          {/* Primary purple-magenta gradient for equipment/power - extremely subtle */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,#8b5cf6_0%,transparent_50%)] opacity-1" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,#a855f7_0%,transparent_50%)] opacity-0.5" />
+          {/* Primary blue-purple gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_-10%,#3b82f6_0%,transparent_45%)] opacity-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_150%,#8b5cf6_0%,transparent_45%)] opacity-10" />
           
-          {/* Blue accents for harmony - extremely subtle */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,#3b82f6_0%,transparent_45%)] opacity-0.5" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#4f46e5_0%,transparent_40%)] opacity-0.3" />
+          {/* Accent gradients */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_80%,#1d4ed8_0%,transparent_30%)] opacity-5" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_60%,#4f46e5_0%,transparent_30%)] opacity-5" />
           
-          {/* Subtle pink for variety - extremely subtle */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,#be185d_0%,transparent_30%)] opacity-0.3" />
+          {/* Subtle blue tint */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_40%,#3b82f6_0%,transparent_20%)] opacity-2" />
         </div>
 
-        {/* Enhanced grid system - matching footer style with subtle pop */}
+        {/* Enhanced grid system with masks */}
         <div className="absolute inset-0">
-          {/* Fine grid pattern - more visible */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.08)_1px,transparent_1px)] bg-[size:24px_24px]" />
+          {/* Main grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.03)_1px,transparent_1px)] bg-[size:24px_24px]" />
           
-          {/* Medium grid overlay - more visible */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(139,92,246,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(139,92,246,0.06)_1px,transparent_1px)] bg-[size:96px_96px]" />
+          {/* Larger grid overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(99,102,241,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.05)_1px,transparent_1px)] bg-[size:96px_96px]" />
 
           {/* Grid fade effects - same as footer */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_20%,#030305_70%)]" />
@@ -105,28 +105,16 @@ export const EquipmentSection = () => {
       
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-center mb-16 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-4 px-3 py-1 bg-blue-500/10 rounded-full"
-          >
+          <div className="inline-block mb-4 px-3 py-1 bg-blue-500/10 rounded-full">
             <span className="text-sm md:text-base tracking-widest uppercase font-mono text-blue-400 flex items-center">
               <FiCrosshair className="mr-2" />
               Tactical Equipment
             </span>
-          </motion.div>
+          </div>
           
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-bold mb-4 font-mono text-white"
-          >
+          <h2 className="section-header text-3xl md:text-5xl font-bold mb-4 font-mono text-white">
             Advanced Deployment Systems
-          </motion.h2>
+          </h2>
           
           <motion.div 
             initial={{ width: 0 }}
@@ -150,12 +138,9 @@ export const EquipmentSection = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {equipmentItems.map((item) => (
-            <motion.div
+            <div
               key={item.id}
-              initial={item.animation.initial}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: item.animation.delay || 0 }}
+              className="equipment-card"
             >
               <GlassCard className="h-full group overflow-hidden bg-gray-800/50 border-gray-600">
                 <div className="aspect-video overflow-hidden relative">
@@ -193,7 +178,7 @@ export const EquipmentSection = () => {
                   </Button>
                 </div>
               </GlassCard>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

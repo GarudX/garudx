@@ -7,6 +7,7 @@ import { GlassCard as Card } from "../molecules/GlassCard";
 import Spline from '@splinetool/react-spline';
 import { BeatLoader } from "react-spinners";
 import Icon from "../atoms/Icon";
+import { ParticleSystem } from "../atoms/ParticleSystem";
 
 // Text lines for animated typing effect
 const heroTextLines = [
@@ -119,6 +120,7 @@ export const HeroSection = () => {
         
         {/* Animated particle field */}
         <ParticleField />
+        <ParticleSystem count={15} className="z-10" />
       </div>
 
       {/* YouTube Video Overlay (reduced opacity to show background) */}
@@ -311,7 +313,7 @@ export const HeroSection = () => {
           
           {/* Floating UI elements */}
           <motion.div 
-            className="absolute top-6 left-6 bg-black/30 backdrop-blur-sm p-3 rounded-lg border border-white/10 z-20"
+            className="floating-element absolute top-6 left-6 bg-black/30 backdrop-blur-sm p-3 rounded-lg border border-white/10 z-20"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 0.9 }}
             transition={{ delay: 1, duration: 0.5 }}
@@ -323,7 +325,7 @@ export const HeroSection = () => {
           </motion.div>
           
           <motion.div 
-            className="absolute bottom-24 right-24 bg-black/30 backdrop-blur-sm p-3 rounded-lg border border-white/10 z-20"
+            className="floating-element absolute bottom-24 right-24 bg-black/30 backdrop-blur-sm p-3 rounded-lg border border-white/10 z-20"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 0.9 }}
             transition={{ delay: 1.2, duration: 0.5 }}
