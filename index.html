@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" id="dynamic-favicon" type="image/png" href="/src/assets/logos/GarudX_LogoIconDark.png" />
+    <link rel="icon" id="dynamic-favicon" type="image/png" href="/assets/logos/GarudX_LogoIconDark.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GarudX - Drone Experts</title>
     <style>
@@ -21,9 +21,9 @@
         function setFavicon() {
           var favicon = document.getElementById('dynamic-favicon');
           if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            favicon.href = '/src/assets/logos/GarudX_LogoIconWhite.png';
+            favicon.href = '/assets/logos/GarudX_LogoIconWhite.png';
           } else {
-            favicon.href = '/src/assets/logos/GarudX_LogoIconDark.png';
+            favicon.href = '/assets/logos/GarudX_LogoIconDark.png';
           }
         }
         setFavicon();
