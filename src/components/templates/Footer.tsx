@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiLinkedin, FiTwitter, FiFacebook, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 import { cn } from '../../utils/helpers/cn';
-import logoImage from '../../assets/logos/GarudX-Logo-Flat-Dark.webp';
+import logoLight from '../../assets/logos/GarudX_Logo-Light.png';
+import logoDark from '../../assets/logos/GarudX-Logo-Flat-Dark.png';
 
 const socialLinks = [
   { name: 'LinkedIn', href: 'https://linkedin.com/company/garudx', icon: FiLinkedin },
@@ -75,6 +76,15 @@ const hoverVariants = {
 export const Footer = () => {
   const [hoveredContact, setHoveredContact] = useState<number | null>(null);
   const [isNewsletterFocused, setIsNewsletterFocused] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDark(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   return (
     <footer className="relative min-h-[600px] overflow-hidden bg-[#0A0A0F]">
@@ -137,7 +147,7 @@ export const Footer = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 via-transparent to-purple-500/20 blur-3xl scale-150" />
             <img 
-              src={logoImage} 
+              src={isDark ? logoLight : logoDark}
               alt="GarudX" 
               className="h-32 md:h-40 relative filter brightness-0 invert opacity-[0.95] drop-shadow-2xl" 
             />

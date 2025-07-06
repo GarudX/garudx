@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown, FiChevronRight, FiShield, FiTarget, FiGrid } from 'react-icons/fi';
 import { cn } from '../../utils/helpers/cn';
-import logoImage from '../../assets/logos/GarudX-Logo-Flat-Dark.webp';
+import logoLight from '../../assets/logos/GarudX_Logo-Light.png';
+import logoDark from '../../assets/logos/GarudX-Logo-Flat-Dark.png';
 
 // Navigation structure
 const mainNav = [
@@ -26,17 +27,14 @@ const mainNav = [
     href: '/specifications',
     icon: <FiGrid className="text-blue-500" />
   },
-  { 
-    name: 'COMPONENTS', 
-    href: '/components',
-    icon: <FiGrid className="text-blue-500" />
-  },
+
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   // Handle scroll effects
   useEffect(() => {
@@ -51,6 +49,14 @@ export const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDark(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -98,7 +104,7 @@ export const Navbar = () => {
               <a href="/" className="relative">
                 {/* Logo */}
                 <img 
-                  src={logoImage} 
+                  src={isDark ? logoLight : logoDark}
                   alt="GarudX" 
                   className="h-10 w-auto filter brightness-0 invert" 
                 />

@@ -3,7 +3,6 @@
 // Navigation routes
 export const ROUTES = {
   HOME: '/',
-  COMPONENTS: '/components',
   AEROSPACE: '/aerospace',
   SERVICES: '/services',
   PORTFOLIO: '/portfolio',
@@ -23,7 +22,6 @@ export const APP_CONFIG = {
 // Page titles
 export const PAGE_TITLES = {
   HOME: 'GarudX | Drone Experts from the Land of Himalayas',
-  COMPONENTS: 'Components Showcase | GarudX',
   AEROSPACE: 'Aerospace Design Showcase | GarudX',
   SERVICES: 'Services | GarudX',
   PORTFOLIO: 'Portfolio | GarudX',

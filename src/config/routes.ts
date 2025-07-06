@@ -2,7 +2,6 @@
 
 export const ROUTES = {
   HOME: '/',
-  COMPONENTS: '/components',
   AEROSPACE: '/aerospace',
   SERVICES: '/services',
   PORTFOLIO: '/portfolio',
@@ -17,11 +16,7 @@ export const ROUTE_METADATA = {
     description: 'Professional drone services and aerospace solutions',
     requiresAuth: false
   },
-  [ROUTES.COMPONENTS]: {
-    title: 'Components Showcase | GarudX',
-    description: 'UI component library and design system',
-    requiresAuth: false
-  },
+
   [ROUTES.AEROSPACE]: {
     title: 'Aerospace Design Showcase | GarudX',
     description: 'Aerospace professional UI implementation',

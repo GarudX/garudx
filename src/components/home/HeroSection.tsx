@@ -194,19 +194,19 @@ export const HeroSection = () => {
             {/* Headline - Smaller and more elegant */}
             <div className="mb-6">
               <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={currentTextIndex}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentTextIndex}
                     className="block text-white h-12 md:h-16 inline-block leading-tight"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {heroTextLines[currentTextIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </h1>
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {heroTextLines[currentTextIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </h1>
             </div>
             
             {/* Description - Smaller and more refined */}

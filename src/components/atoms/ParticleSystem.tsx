@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 interface ParticleSystemProps {
   count?: number;
@@ -9,50 +9,43 @@ interface ParticleSystemProps {
 export const ParticleSystem = ({ count = 20, className = "" }: ParticleSystemProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const container = containerRef.current;
-    const particles: HTMLDivElement[] = [];
-
-    // Create particles
-    for (let i = 0; i < count; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'absolute w-1 h-1 bg-blue-500/30 rounded-full pointer-events-none';
-      
-      // Random initial position
-      particle.style.left = `${Math.random() * 100}%`;
-      particle.style.top = `${Math.random() * 100}%`;
-      
-      container.appendChild(particle);
-      particles.push(particle);
-
-      // Animate each particle
-      gsap.to(particle, {
-        y: -100 - Math.random() * 200,
-        x: Math.random() * 100 - 50,
-        opacity: 0,
-        duration: 3 + Math.random() * 4,
-        ease: "none",
-        repeat: -1,
-        delay: Math.random() * 2
-      });
-    }
-
-    // Cleanup
-    return () => {
-      particles.forEach(particle => {
-        if (particle.parentNode) {
-          particle.parentNode.removeChild(particle);
-        }
-      });
-    };
-  }, [count]);
+  // Create array of particles for rendering
+  const particles = Array.from({ length: count }, (_, i) => ({
+    id: i,
+    initialX: Math.random() * 100,
+    initialY: Math.random() * 100,
+    delay: Math.random() * 2,
+    duration: 3 + Math.random() * 4,
+    xOffset: Math.random() * 100 - 50,
+    yOffset: -100 - Math.random() * 200
+  }));
 
   return (
     <div 
       ref={containerRef} 
       className={`absolute inset-0 overflow-hidden ${className}`}
-    />
+    >
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute w-1 h-1 bg-blue-500/30 rounded-full pointer-events-none"
+          style={{
+            left: `${particle.initialX}%`,
+            top: `${particle.initialY}%`
+          }}
+          animate={{
+            y: particle.yOffset,
+            x: particle.xOffset,
+            opacity: [0.3, 0.8, 0]
+          }}
+          transition={{
+            duration: particle.duration,
+            delay: particle.delay,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+      ))}
+    </div>
   );
 }; 
